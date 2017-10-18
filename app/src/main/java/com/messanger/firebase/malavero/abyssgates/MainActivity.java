@@ -112,5 +112,7 @@ public class MainActivity extends Activity {
     }
 
     public void register(View view) {
+        Intent registerIntent = new Intent(this, RegisterYourAccount.class);
+        startActivity(registerIntent);
     }
 }
