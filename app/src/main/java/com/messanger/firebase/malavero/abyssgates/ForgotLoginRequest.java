@@ -33,10 +33,11 @@ public class ForgotLoginRequest extends Activity {
                 StaticMethods.toastMessage("Enter your email", getApplicationContext());
                 return;
             }
-            if (password.equals("")) {
-                StaticMethods.toastMessage("Enter your password", getApplicationContext());
-                return;
-            }
+            if(mode == 2)
+                if (password.equals("")) {
+                    StaticMethods.toastMessage("Enter your password", getApplicationContext());
+                    return;
+                }
             if (mode == 1) { //przypomnienie hasła
                 recoverPassword(email);
             } else if (mode == 2) { //przypomnienie loginu
@@ -93,4 +94,5 @@ public class ForgotLoginRequest extends Activity {
     private void sendUserLoginToUserEmail(String email){
         //TODO
     }
+    //TODO po wysłaniu niech sie pokaze dialog z informacja oraz niech aktivity sie zamknie
 }

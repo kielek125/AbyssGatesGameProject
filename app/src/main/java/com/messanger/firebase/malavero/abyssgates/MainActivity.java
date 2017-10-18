@@ -18,63 +18,65 @@ import com.messanger.firebase.malavero.abyssgates.FINAL.StaticStrings;
 
 public class MainActivity extends Activity {
 
-
     private SharedPreferences spMySettings;
     private TextView termsAndConditionsTextView;
-    private EditText loginEditText,passwordEditText;
-    private CheckBox termsCheckBox;
-    private CheckBox rememberSettings;
+    private EditText loginEditText, passwordEditText;
+    private CheckBox termsCheckBox, rememberSettingsCheckBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         try {
             setContentView(R.layout.activity_main);
             fillControls();
             loadIfMySettingsHasValues();
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             StaticMethods.toastException(e, this);
         }
     }
 
-    private void fillControls(){
-        // tworzymy podkreślenie do stringa "terms and conditions"
-        termsAndConditionsTextView = (TextView)this.findViewById(R.id.acceptTermsTextView);
+    private void fillControls() {
+        termsAndConditionsTextView = (TextView) this.findViewById(R.id.acceptTermsTextView);
         termsAndConditionsTextView.setPaintFlags(termsAndConditionsTextView.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
-        //bindujemy pozostale kontrolki
-        loginEditText = (EditText)this.findViewById(R.id.loginEditText);
+        loginEditText = (EditText) this.findViewById(R.id.loginEditText);
         passwordEditText = (EditText) this.findViewById(R.id.passwordEditText);
         termsCheckBox = (CheckBox) this.findViewById(R.id.acceptTermsCheckBox);
-        rememberSettings = (CheckBox) this.findViewById(R.id.rememberSettings);
+        rememberSettingsCheckBox = (CheckBox) this.findViewById(R.id.rememberSettings);
 
-        //pobieramy shared preferences
         spMySettings = getSharedPreferences(StaticStrings.MY_SETTINGS, MODE_PRIVATE);
     }
-    private void loadIfMySettingsHasValues(){
-        String login = spMySettings.getString(StaticStrings.MY_LOGIN,"");
+
+    private void loadIfMySettingsHasValues() {
+        String login = spMySettings.getString(StaticStrings.MY_LOGIN, "");
         String password = spMySettings.getString(StaticStrings.MY_PASSWORD, "");
-        if(!login.equals("") && !password.equals("") && !login.isEmpty() && !password.isEmpty()){
-            loginEditText.setText(login);
-            passwordEditText.setText(password);
-        }
+        boolean settings = spMySettings.getBoolean(StaticStrings.MY_CHECKED_SETTINGS, false);
+        boolean terms = spMySettings.getBoolean(StaticStrings.MY_TERMS, false);
+        loginEditText.setText(login);
+        passwordEditText.setText(password);
+        rememberSettingsCheckBox.setChecked(settings);
+        termsCheckBox.setChecked(terms);
     }
-    private void saveIfCheckBoxIsChecked(){
-        if(rememberSettings.isChecked()){
+
+    private void saveIfCheckBoxIsChecked() {
+        if (rememberSettingsCheckBox.isChecked()) {
             String login = loginEditText.getText().toString();
             String password = loginEditText.getText().toString();
+            boolean settings = termsCheckBox.isChecked();
+            boolean terms = rememberSettingsCheckBox.isChecked();
+
             SharedPreferences.Editor editorMySettings = spMySettings.edit();
             editorMySettings.putString(StaticStrings.MY_LOGIN, login);
             editorMySettings.putString(StaticStrings.MY_PASSWORD, password);
+            editorMySettings.putBoolean(StaticStrings.MY_CHECKED_SETTINGS, settings);
+            editorMySettings.putBoolean(StaticStrings.MY_TERMS, terms);
             editorMySettings.commit();
         }
     }
 
     public void loginToGame(View view) {
         //na początku jak sie uda to zapisz
-        if(!termsCheckBox.isChecked()){
+        if (!termsCheckBox.isChecked()) {
             AlertDialog.Builder notAgree = new AlertDialog.Builder(this, android.R.style.Theme_DeviceDefault_Dialog_Alert);
             notAgree.setMessage(StaticStrings.AGREE_TERMS)
                     .setTitle("Warning!")
@@ -85,8 +87,7 @@ public class MainActivity extends Activity {
                         }
                     });
             notAgree.create().show();
-        }
-        else {
+        } else {
             //TODO
             saveIfCheckBoxIsChecked();
         }
