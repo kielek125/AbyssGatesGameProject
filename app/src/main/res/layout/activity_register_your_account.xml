@@ -19,31 +19,31 @@
         android:id="@+id/loginRegisterYourAccountEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:layout_marginEnd="101dp"
         android:ems="10"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:layout_centerVertical="true"
+        android:layout_alignStart="@+id/passwordRegisterYourAccountEditText" />
 
     <EditText
         android:id="@+id/emailRegisterYourAccountEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/loginRegisterYourAccountEditText"
-        android:layout_alignEnd="@+id/loginRegisterYourAccountEditText"
-        android:layout_marginBottom="23dp"
+        android:layout_marginBottom="21dp"
         android:ems="10"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        android:layout_above="@+id/loginRegisterYourAccountEditText"
+        android:layout_alignStart="@+id/passwordRegisterYourAccountEditText" />
 
     <EditText
         android:id="@+id/passwordRegisterYourAccountEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/loginRegisterYourAccountEditText"
-        android:layout_below="@+id/loginRegisterYourAccountEditText"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="23dp"
         android:ems="10"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:layout_below="@+id/loginRegisterYourAccountImageView"
+        android:layout_toEndOf="@+id/passwordRegisterYourAccountImageView" />
 
     <ImageView
         android:id="@+id/emailRegisterYourAccountImageView"
@@ -74,11 +74,11 @@
         android:id="@+id/registerYourAccountButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:clickable="true"
         android:onClick="registerAccount"
+        android:src="@drawable/register"
+        android:layout_below="@+id/passwordRegisterYourAccountImageView"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="35dp"
-        android:src="@drawable/register" />
+        android:layout_marginTop="24dp" />
 
 </RelativeLayout>

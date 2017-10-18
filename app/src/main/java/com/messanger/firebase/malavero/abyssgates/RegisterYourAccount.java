@@ -32,19 +32,15 @@ public class RegisterYourAccount extends Activity {
             String login = loginET.getText().toString();
             String password = passwordET.getText().toString();
 
-            if (!StaticMethods.emailValid(email)) {
+            if (!StaticMethods.emailValid(email) || email.equals("")) {
                 StaticMethods.toastMessage("Invalid email", getApplicationContext());
                 return;
             }
-//TODO
-//            if (!StaticMethods.loginValid(login) {
-//                StaticMethods.toastMessage("Invalid email", getApplicationContext());
-//                return;
-//            }
-//            if (!StaticMethods.passwordValid(login) {
-//                StaticMethods.toastMessage("Invalid password", getApplicationContext());
-//                return;
-//            }
+
+            if (!StaticMethods.loginValid(login) || login.equals("")) {
+                StaticMethods.toastMessage("Invalid login", getApplicationContext());
+                return;
+            }
             if (checkIfAccountAlreadyExist()) {
                 String messageDialog = "";
                 if (checkEmailIfExist(email))

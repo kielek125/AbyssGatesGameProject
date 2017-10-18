@@ -113,7 +113,6 @@ public class SwipeDetector implements View.OnTouchListener {
                         return false;
                     }
                 }
-
                 return true;
             }
         }
