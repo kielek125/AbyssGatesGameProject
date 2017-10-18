@@ -52,7 +52,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignTop="@+id/emailRegisterYourAccountEditText"
         android:layout_marginStart="122dp"
-        app:srcCompat="@drawable/youremail" />
+        android:src="@drawable/youremail" />
 
     <ImageView
         android:id="@+id/loginRegisterYourAccountImageView"
@@ -60,7 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/emailRegisterYourAccountImageView"
         android:layout_below="@+id/emailRegisterYourAccountEditText"
-        app:srcCompat="@drawable/yourlogin" />
+        android:src="@drawable/yourlogin" />
 
     <ImageView
         android:id="@+id/passwordRegisterYourAccountImageView"
@@ -68,7 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/loginRegisterYourAccountImageView"
         android:layout_alignTop="@+id/passwordRegisterYourAccountEditText"
-        app:srcCompat="@drawable/yourpassword" />
+        android:src="@drawable/yourpassword" />
 
     <ImageView
         android:id="@+id/registerYourAccountButton"
@@ -79,7 +79,6 @@
         android:onClick="registerAccount"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="35dp"
-        app:srcCompat="@drawable/register" />
-
+        android:src="@drawable/register" />
 
 </RelativeLayout>
