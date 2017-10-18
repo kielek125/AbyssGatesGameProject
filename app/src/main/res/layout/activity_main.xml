@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.messanger.firebase.malavero.abyssgates.MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/backgroundLogin"
+        android:scaleType="fitXY"
+        android:src="@drawable/backgroundlogin"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:id="@+id/loginLabel"
+        android:alpha="0.9"
+        android:src="@drawable/login" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/loginLabel"
+        android:layout_marginStart="50dp"
+        android:id="@+id/passwordLabel"
+        android:alpha="0.9"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/password" />
+
+    <EditText
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/loginEditText"
+        android:layout_alignTop="@+id/loginLabel"
+        android:layout_alignBottom="@+id/loginLabel"
+        android:hint="@string/hintLogin"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorPrimaryDark"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/loginLabel" />
+
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/passwordLabel"
+        android:layout_alignTop="@+id/passwordLabel"
+        android:hint="@string/hintPassword"
+        android:inputType="textPassword"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorPrimaryDark"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/passwordLabel" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/loginButton"
+        android:onClick="loginToGame"
+        android:src="@drawable/logintogame"
+        android:clickable="true"
+        android:layout_marginTop="29dp"
+        android:layout_below="@+id/acceptTermsCheckBox"
+        android:layout_alignStart="@+id/ForgotLogin" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/registerButton"
+        android:onClick="register"
+        android:clickable="true"
+        android:src="@drawable/register"
+        android:layout_alignTop="@+id/loginButton"
+        android:layout_alignEnd="@+id/passwordEditText" />
+
+    <TextView
+        android:id="@+id/ForgotLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/passwordLabel"
+        android:layout_below="@+id/loginButton"
+        android:layout_marginTop="20dp"
+        android:clickable="true"
+        android:textColor="@color/colorRed"
+        android:onClick="forgotLogins"
+        android:textStyle="bold"
+        android:text= "Forgot your login?"/>
+
+    <TextView
+        android:id="@+id/ForgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/ForgotLogin"
+        android:layout_below="@+id/ForgotLogin"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/colorRed"
+        android:clickable="true"
+        android:textStyle="bold"
+        android:onClick="forgotPassword"
+        android:text="Forgot your password?" />
+
+    <CheckBox
+        android:id="@+id/acceptTermsCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorYellow"
+        android:textSize="20dp"
+        android:checked="false"
+        android:text="I agree to the accept the "
+        android:layout_below="@+id/passwordLabel"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/acceptTermsTextView"
+        android:clickable="true"
+        android:textSize="20dp"
+        android:textColor="@color/colorYellow"
+        android:onClick="showTermsAndConditions"
+        android:text="terms and conditions."
+        android:textStyle="italic|bold"
+        android:layout_alignBaseline="@+id/acceptTermsCheckBox"
+        android:layout_alignBottom="@+id/acceptTermsCheckBox"
+        android:layout_toEndOf="@+id/acceptTermsCheckBox" />
+
+    <CheckBox
+        android:id="@+id/rememberSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorYellow"
+        android:checked="false"
+        android:text="Remember my settigns"
+        android:layout_alignBottom="@+id/ForgotPassword"
+        android:layout_alignEnd="@+id/registerButton" />
+
+</RelativeLayout>

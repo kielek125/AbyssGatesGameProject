@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.messanger.firebase.malavero.abyssgates.RegisterYourAccount">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/backgroundRegisterYourAccount"
+        android:scaleType="fitXY"
+        android:src="@drawable/backgroundlogin"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/loginRegisterYourAccountEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="101dp"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/emailRegisterYourAccountEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/loginRegisterYourAccountEditText"
+        android:layout_alignEnd="@+id/loginRegisterYourAccountEditText"
+        android:layout_marginBottom="23dp"
+        android:ems="10"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/passwordRegisterYourAccountEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/loginRegisterYourAccountEditText"
+        android:layout_below="@+id/loginRegisterYourAccountEditText"
+        android:layout_marginTop="23dp"
+        android:ems="10"
+        android:inputType="textPassword" />
+
+    <ImageView
+        android:id="@+id/emailRegisterYourAccountImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/emailRegisterYourAccountEditText"
+        android:layout_marginStart="122dp"
+        app:srcCompat="@drawable/youremail" />
+
+    <ImageView
+        android:id="@+id/loginRegisterYourAccountImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/emailRegisterYourAccountImageView"
+        android:layout_below="@+id/emailRegisterYourAccountEditText"
+        app:srcCompat="@drawable/yourlogin" />
+
+    <ImageView
+        android:id="@+id/passwordRegisterYourAccountImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/loginRegisterYourAccountImageView"
+        android:layout_alignTop="@+id/passwordRegisterYourAccountEditText"
+        app:srcCompat="@drawable/yourpassword" />
+
+    <ImageView
+        android:id="@+id/registerYourAccountButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:clickable="true"
+        android:onClick="registerAccount"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="35dp"
+        app:srcCompat="@drawable/register" />
+
+
+</RelativeLayout>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.messanger.firebase.malavero.abyssgates.ForgotLoginRequest">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/backgroundForgotLogin"
+        android:scaleType="fitXY"
+        android:src="@drawable/backgroundlogin"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="700dp"
+        android:layout_height="320dp"
+        android:id="@+id/blackRowForgotLogin"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/blacksquare"/>
+
+    <ImageView
+        android:id="@+id/forgotEmailTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/email"
+        android:textColor="@color/colorYellow"
+        android:text="Your email:"
+        android:layout_above="@+id/forgotPasswordTextView"
+        android:layout_alignStart="@+id/forgotPasswordTextView" />
+
+    <ImageView
+        android:id="@+id/forgotPasswordTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/password"
+        android:textColor="@color/colorYellow"
+        android:text="Your password:"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@+id/forgotButtonRequest" />
+
+    <EditText
+        android:id="@+id/forgotPasswordEditText"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginLeft="10dp"
+        android:layout_alignTop="@+id/forgotPasswordTextView"
+        android:layout_toEndOf="@+id/forgotPasswordTextView" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/forgotEmailEditText"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginLeft="10dp"
+        android:layout_alignTop="@+id/forgotEmailTextView"
+        android:layout_alignEnd="@+id/forgotPasswordEditText"
+        android:layout_toEndOf="@+id/forgotEmailTextView" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/forgotButtonRequest"
+        android:clickable="true"
+        android:onClick="forgotLoginRequest"
+        android:src="@drawable/forgotrequest"
+        android:layout_alignBottom="@+id/blackRowForgotLogin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="82dp" />
+
+</RelativeLayout>
