@@ -22,6 +22,7 @@ import java.io.InputStream;
 public class PlanetActivity extends Activity {
 
     ImageView backgroundJungle;
+    private int choosenPlanet = 0;
     public int WIDTH = 0;
     public int HEIGHT = 0;
     public int DISPLAYWIDTH = 0;
@@ -33,6 +34,9 @@ public class PlanetActivity extends Activity {
         //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_planet);
 
+        //TODO pobierz planete z bazy, jesli zwroci 0 to znaczy ze nie istnieje wiec pobierz z wczesniejszego intentu
+        choosenPlanet = getIntent().getIntExtra("ChoosenPlanet", 0);
+
         new SwipeDetector(getWindow().getDecorView().findViewById(R.id.content)).setOnSwipeListener(new SwipeDetector.onSwipeEvent() {
             @Override
             public void SwipeEventDetected(View v, SwipeDetector.SwipeTypeEnum SwipeType) {
@@ -40,8 +44,17 @@ public class PlanetActivity extends Activity {
                     Toast.makeText(getApplicationContext(), "igor to pala", Toast.LENGTH_SHORT).show(); //TODO
             }
         });
-
-        backgroundJungle = (ImageView) findViewById(R.id.backgroundJungle);
+        try {
+            if (choosenPlanet == 1)
+                backgroundJungle = (ImageView) findViewById(R.id.backgroundJungle);
+            else if (choosenPlanet == 2)
+                backgroundJungle = (ImageView) findViewById(R.id.backgroundJungle); //TODO
+            else if (choosenPlanet == 3)
+                backgroundJungle = (ImageView) findViewById(R.id.backgroundJungle); //TODO
+        }
+        catch(Exception e){
+            StaticMethods.toastException(e, this);
+        }
 
         InputStream is = null;
         try {

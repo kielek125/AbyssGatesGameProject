@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.messanger.firebase.malavero.abyssgates.ChoosePlanetActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/backgroundLogin"
+        android:scaleType="fitXY"
+        android:src="@drawable/backgroundlogin" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:weightSum="3"
+        android:id="@+id/linearLayout">
+
+        <ImageView
+            android:id="@+id/selectPlanetJungleImageView"
+            android:layout_width="227dp"
+            android:layout_height="132dp"
+            android:src="@drawable/junglemin"
+            android:clickable="true"
+            android:onClick="choosePlanet"/>
+        <ImageView
+            android:id="@+id/selectPlanetDesertImageView"
+            android:layout_width="227dp"
+            android:layout_height="132dp"
+            android:src="@drawable/desertmin"
+            android:clickable="true"
+            android:onClick="choosePlanet"/>
+        <ImageView
+            android:id="@+id/selectPlanetIceImageView"
+            android:layout_width="227dp"
+            android:layout_height="132dp"
+            android:src="@drawable/icemin"
+            android:clickable="true"
+            android:onClick="choosePlanet"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:weightSum="3"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout2">
+
+        <TextView
+            android:id="@+id/infoPlanetJungleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1"
+            android:text="Zielona planeta bogata w roślinność. Na jej powierzchni znajduje się setki gatunków zwierząt i roślin. Jest bardzo bogata w materiały"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/infoPlanetIceTextView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1"
+            android:text="Lodowa planeta to bardzo zimne miejsce. Ze względu na brak zwierzyny występuje tam mnóstwo minerałów"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/infoPlanetDesertTextView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1"
+            android:text="Pustyne planty ze względu na odległość od słońca są bardzo bogatym źródłem energii. "
+            android:textAlignment="center" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/choosePlanetImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="52dp"
+        android:clickable="true"
+        android:onClick="chooseYourFirstPlanet"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/chooseplanet" />
+
+
+</RelativeLayout>

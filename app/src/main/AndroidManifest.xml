@@ -20,7 +20,8 @@
         </activity>
         <activity android:name=".PlanetActivity" />
         <activity android:name=".ForgotLoginRequest" />
-        <activity android:name=".RegisterYourAccount"></activity>
+        <activity android:name=".RegisterYourAccount" />
+        <activity android:name=".ChoosePlanetActivity"></activity>
     </application>
 
 </manifest>

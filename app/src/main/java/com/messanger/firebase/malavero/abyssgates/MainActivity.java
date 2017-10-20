@@ -88,8 +88,15 @@ public class MainActivity extends Activity {
                     });
             notAgree.create().show();
         } else {
-            //TODO
-            saveIfCheckBoxIsChecked();
+            if(userCanLogin()){
+                if(!userAlreadyHasPlanet()) {
+                    startActivity(new Intent(this, ChoosePlanetActivity.class));
+                    finish();
+                } else {
+                    startActivity(new Intent(getApplicationContext(), PlanetActivity.class));
+                }
+                saveIfCheckBoxIsChecked();
+            }
         }
     }
 
@@ -115,5 +122,14 @@ public class MainActivity extends Activity {
     public void register(View view) {
         Intent registerIntent = new Intent(this, RegisterYourAccount.class);
         startActivity(registerIntent);
+    }
+    private boolean userCanLogin(){
+        String login = loginEditText.getText().toString();
+        String password = passwordEditText.getText().toString();
+        return true;
+    }
+    private boolean userAlreadyHasPlanet(){
+        //TODO
+        return false;
     }
 }
