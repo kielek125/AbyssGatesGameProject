@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.BitmapRegionDecoder;
-import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Point;
 import android.graphics.PointF;
@@ -12,12 +11,10 @@ import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.content.res.ResourcesCompat;
 import android.util.Log;
 import android.view.Display;
 import android.view.MotionEvent;
-import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -158,21 +155,20 @@ public class PlanetActivity extends Activity implements View.OnTouchListener {
 
                 if (mode == DRAG) {
                     matrix.set(savedMatrix);
-                    matrix.postTranslate(event.getX() - start.x, event.getY() - start.y); // create the transformation in the matrix  of points
+                    matrix.postTranslate(event.getX() - start.x, event.getY() - start.y);
                 } else if (mode == ZOOM) {
-
                     // pinch zooming
                     float newDist = spacing(event);
                     Log.d(TAG, "newDist=" + newDist);
                     if (newDist > 5f) {
                         matrix.set(savedMatrix);
-                        scale = newDist / oldDist; // setting the scaling of the
-                        // matrix...if scale > 1 means
-                        // zoom in...if scale < 1 means
+                        scale = newDist / oldDist;
+                        // matrix...
+                        // if scale > 1 means
+                        // zoom in...
+                        // if scale < 1 means
                         // zoom out
-                        if (scale > 0.75 || scale < 1.75)
-                            matrix.postScale(scale, scale, mid.x, mid.y);
-
+                        matrix.postScale(scale, scale, mid.x, mid.y);
                     }
                 }
                 break;
