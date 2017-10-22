@@ -26,6 +26,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+import static com.messanger.firebase.malavero.abyssgates.R.id.flagBudiling;
+
 public class PlanetActivity extends Activity implements View.OnTouchListener {
 
     ImageView backgroundMap;
@@ -46,7 +48,6 @@ public class PlanetActivity extends Activity implements View.OnTouchListener {
         backgroundMap = (ImageView) findViewById(R.id.backgroundMap);
 
         backgroundMap.setOnTouchListener(this);
-
 
         InputStream is = null;
         try {
