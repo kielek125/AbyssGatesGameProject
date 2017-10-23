@@ -4,14 +4,11 @@ import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.BitmapRegionDecoder;
-import android.graphics.Matrix;
-import android.graphics.PointF;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.content.res.ResourcesCompat;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -23,15 +20,14 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import static android.R.interpolator.linear;
-
 public class PlanetActivity extends Activity implements View.OnTouchListener {
 
-    ImageView backgroundMap;
+    private ImageView backgroundMap;
     private int choosenPlanet = 0;
     public int WIDTH = 0;
     public int HEIGHT = 0;
-    ZoomLayout zoomLayout;
+    private ZoomLayout zoomLayout;
+    private RelativeLayout layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +41,7 @@ public class PlanetActivity extends Activity implements View.OnTouchListener {
 
         zoomLayout = (ZoomLayout)findViewById(R.id.zoomLayout);
         zoomLayout.setOnTouchListener(PlanetActivity.this);
+        layout = (RelativeLayout) findViewById(R.id.contentPlanet);
 
         InputStream is = null;
         try {
@@ -86,9 +83,13 @@ public class PlanetActivity extends Activity implements View.OnTouchListener {
         } catch (IOException ex) {
             StaticMethods.toastException(ex, this);
         }
+        drawFlags();
     }
     public boolean onTouch(View v, MotionEvent event){
         zoomLayout.init(PlanetActivity.this);
         return false;
+    }
+    private void drawFlags(){
+        StaticMethods.drawFlag(layout, getApplicationContext(), 100,100,100, 100);
     }
 }

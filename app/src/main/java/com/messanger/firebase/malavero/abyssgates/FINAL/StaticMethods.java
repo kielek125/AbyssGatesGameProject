@@ -1,11 +1,20 @@
 package com.messanger.firebase.malavero.abyssgates.FINAL;
 
 import android.content.Context;
+import android.media.Image;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
+
+import com.messanger.firebase.malavero.abyssgates.R;
 
 import java.text.NumberFormat;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static android.R.attr.x;
+import static android.R.attr.y;
 
 /**
  * Created by kielson on 2017-10-18.
@@ -51,5 +60,20 @@ public class StaticMethods {
     }
     public static void toastException(Exception ex, Context context) {
         Toast.makeText(context, ex.getMessage().toString(), Toast.LENGTH_SHORT).show();
+    }
+    public static void drawFlag(RelativeLayout layout, Context context, int high, int width, int leftMargin, int topMargin){
+        ImageView flag = new ImageView(context);
+        RelativeLayout.LayoutParams params;
+        flag.setImageResource(R.drawable.flag);
+        flag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        params = new RelativeLayout.LayoutParams(high,width);
+        params.leftMargin = leftMargin;
+        params.topMargin = topMargin;
+        layout.addView(flag, params);
     }
 }
