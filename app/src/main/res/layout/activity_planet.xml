@@ -1,32 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/content"
+<com.messanger.firebase.malavero.abyssgates.ZoomLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/zoomLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.messanger.firebase.malavero.abyssgates.PlanetActivity">
+    android:background="#000000"
+    android:layout_height="match_parent">
 
-
-    <ImageView
-        android:id="@+id/backgroundMap"
+    <RelativeLayout
+        android:id="@+id/contentPlanet"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitXY"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_height="match_parent">
 
+        <ImageView
+            android:id="@+id/backgroundMap"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="fitXY" />
 
+        <ImageView
+            android:id="@+id/flagEnergonMine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/flag" />
 
-    <ImageView
-        android:id="@+id/flagBudiling"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/flag"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        <ImageView
+            android:id="@+id/flagEnergonStore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/flag" />
 
+        <ImageView
+            android:id="@+id/flagHeadquarters"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/flag"
+            android:layout_alignBottom="@+id/flagEnergonMine"
+            android:layout_toEndOf="@+id/flagMaterialMine"
+            android:layout_marginBottom="10dp" />
 
+        <ImageView
+            android:id="@+id/flagLaboratory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/flag"
+            android:layout_alignBottom="@+id/flagEnergonMine"
+            android:layout_alignStart="@+id/flagNavalShipyard"
+            android:layout_marginBottom="29dp" />
 
+        <ImageView
+            android:id="@+id/flagMaterialMine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/flag"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/flagMineralMine" />
 
-</RelativeLayout>
+        <ImageView
+            android:id="@+id/flagMineralMine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/flag"
+            android:layout_alignTop="@+id/flagWorkshop"
+            android:layout_alignStart="@+id/flagShieldGenerator"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="17dp" />
+
+        <ImageView
+            android:id="@+id/flagNavalShipyard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/flag"
+            android:layout_alignTop="@+id/flagShieldGenerator"
+            android:layout_alignStart="@+id/flagStorehouse"
+            android:layout_marginStart="39dp" />
+
+        <ImageView
+            android:id="@+id/flagObservatory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/flag"
+            android:layout_alignTop="@+id/flagEnergonMine"
+            android:layout_toEndOf="@+id/flagShieldGenerator"
+            android:layout_marginStart="14dp" />
+
+        <ImageView
+            android:id="@+id/flagShieldGenerator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/flag"
+            android:layout_alignTop="@+id/flagSolarBattery"
+            android:layout_alignEnd="@+id/flagEnergonMine"
+            android:layout_marginEnd="92dp" />
+
+        <ImageView
+            android:id="@+id/flagSolarBattery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/flag"
+            android:layout_alignTop="@+id/flagTemple"
+            android:layout_alignEnd="@+id/flagWorkshop"
+            android:layout_marginEnd="12dp" />
+        <ImageView
+            android:id="@+id/flagStorehouse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/flag"
+            android:layout_alignParentTop="true"
+            android:layout_toStartOf="@+id/flagTemple" />
+
+        <ImageView
+            android:id="@+id/flagTemple"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/flag"
+            android:layout_alignParentBottom="true"
+            android:layout_alignEnd="@+id/flagPavilon"
+            android:layout_marginEnd="9dp"
+            android:layout_marginBottom="26dp" />
+
+        <ImageView
+            android:id="@+id/flagPavilon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/flag"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="17dp" />
+
+        <ImageView
+            android:id="@+id/flagWorkshop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/flag"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+
+</com.messanger.firebase.malavero.abyssgates.ZoomLayout>
