@@ -63,13 +63,13 @@ public class StaticMethods {
         Toast.makeText(context, ex.getMessage().toString(), Toast.LENGTH_SHORT).show();
     }
     public static ImageView drawFlag(RelativeLayout layout, Context context, int high, int width, int leftMargin, int topMargin){
-        float density = context.getResources().getDisplayMetrics().density;
+        //float density = context.getResources().getDisplayMetrics().density;
         ImageView flag = new ImageView(context);
         RelativeLayout.LayoutParams params;
         flag.setImageResource(R.drawable.flag);
-        params = new RelativeLayout.LayoutParams((int)(high * density),(int)(width * density));
-        params.leftMargin = (int)(leftMargin * density);
-        params.topMargin = (int)(topMargin * density);
+        params = new RelativeLayout.LayoutParams(high, width);
+        params.leftMargin = leftMargin;
+        params.topMargin = topMargin;
         layout.addView(flag, params);
         return flag;
     }

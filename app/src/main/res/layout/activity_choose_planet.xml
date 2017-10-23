@@ -73,7 +73,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_weight="1"
-            android:text="Lodowa planeta to bardzo zimne miejsce. Ze względu na brak zwierzyny występuje tam mnóstwo minerałów"
+            android:text="Pustyne planty ze względu na odległość od słońca są bardzo bogatym źródłem energii."
             android:textAlignment="center" />
 
         <TextView
@@ -83,7 +83,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_weight="1"
-            android:text="Pustyne planty ze względu na odległość od słońca są bardzo bogatym źródłem energii. "
+            android:text="Lodowa planeta to bardzo zimne miejsce. Ze względu na brak zwierzyny występuje tam mnóstwo minerałów."
             android:textAlignment="center" />
 
     </LinearLayout>

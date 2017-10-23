@@ -1,30 +1,35 @@
 package com.messanger.firebase.malavero.abyssgates;
 
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.BitmapRegionDecoder;
+import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.content.res.ResourcesCompat;
+import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
+
 import com.messanger.firebase.malavero.abyssgates.FINAL.StaticMethods;
+import com.messanger.firebase.malavero.abyssgates.FINAL.StaticValues;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
 
-import static com.messanger.firebase.malavero.abyssgates.FINAL.StaticMethods.drawFlag;
-import static com.messanger.firebase.malavero.abyssgates.R.drawable.flag;
+import static android.R.attr.width;
+
 
 public class PlanetActivity extends Activity implements View.OnTouchListener {
 
@@ -45,7 +50,7 @@ public class PlanetActivity extends Activity implements View.OnTouchListener {
         choosenPlanet = getIntent().getIntExtra("ChoosenPlanet", 0);
         backgroundMap = (ImageView) findViewById(R.id.backgroundMap);
 
-        zoomLayout = (ZoomLayout)findViewById(R.id.zoomLayout);
+        zoomLayout = (ZoomLayout) findViewById(R.id.zoomLayout);
         zoomLayout.setOnTouchListener(PlanetActivity.this);
         layout = (RelativeLayout) findViewById(R.id.contentPlanet);
 
@@ -84,26 +89,138 @@ public class PlanetActivity extends Activity implements View.OnTouchListener {
                 options.inPreferredConfig = Bitmap.Config.RGB_565;
                 Bitmap partOfBitmap = decoder.decodeRegion(new Rect(0, 0, WIDTH, HEIGHT), options);
                 backgroundMap.setImageBitmap(partOfBitmap);
-                Toast.makeText(getApplicationContext(), WIDTH + " " + HEIGHT, Toast.LENGTH_LONG).show();
             }
         } catch (IOException ex) {
             StaticMethods.toastException(ex, this);
         }
         drawFlags();
     }
-    public boolean onTouch(View v, MotionEvent event){
-        zoomLayout.init(PlanetActivity.this);
+
+    public boolean onTouch(View v, MotionEvent event) {
+        //zoomLayout.init(PlanetActivity.this);
+        int x = (int) event.getX();
+        int y = (int) event.getY();
+        StaticMethods.toastMessage("X = " + x + " | Y = " + y, getApplicationContext());
         return false;
     }
-    private void drawFlags(){
-        final ImageView flag = StaticMethods.drawFlag(layout, getApplicationContext(), 50, 50, 300, 200);
-        flag.setOnClickListener(new View.OnClickListener() {
+
+    private void drawFlags() {
+        //get x i podziel go przez stała 1080
+        //get y i podziel go przez stala 1800
+        // jezeli e
+        Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        double myWidth = (StaticValues.BASIC_WIDTH / size.x) * 2.625;
+        double myHeight = (StaticValues.BASICH_HEIGHT / size.y) * 2.625;
+
+        final ImageView flagEnergonMine = StaticMethods.drawFlag(layout, getApplicationContext(), (int) (50 * myWidth), (int) (50 * myHeight), (int) (441 * myWidth), (int) (331 * myHeight));
+        final ImageView flagEnergonStore = StaticMethods.drawFlag(layout, getApplicationContext(), (int) (50 * myWidth), (int) (50 * myHeight), (int) (379 * myWidth), (int) (297 * myHeight));
+        final ImageView flagHeadquarters = StaticMethods.drawFlag(layout, getApplicationContext(), (int) (50 * myWidth), (int) (50 * myHeight), (int) (361 * myWidth), (int) (201 * myHeight));
+        final ImageView flagLaboratory = StaticMethods.drawFlag(layout, getApplicationContext(), (int) (50 * myWidth), (int) (50 * myHeight), (int) (142 * myWidth), (int) (290 * myHeight));
+        final ImageView flagMaterialMine = StaticMethods.drawFlag(layout, getApplicationContext(), (int) (50 * myWidth), (int) (50 * myHeight), (int) (48 * myWidth), (int) (200 * myHeight));
+        final ImageView flagMineralMine = StaticMethods.drawFlag(layout, getApplicationContext(), (int) (50 * myWidth), (int) (50 * myHeight), (int) (182 * myWidth), (int) (117 * myHeight));
+        final ImageView flagNavalShipyard = StaticMethods.drawFlag(layout, getApplicationContext(), (int) (50 * myWidth), (int) (50 * myHeight), (int) (312 * myWidth), (int) (126 * myHeight));
+        final ImageView flagObservatory = StaticMethods.drawFlag(layout, getApplicationContext(), (int) (50 * myWidth), (int) (50 * myHeight), (int) (630 * myWidth), (int) (196 * myHeight));
+        final ImageView flagShieldGenerator = StaticMethods.drawFlag(layout, getApplicationContext(), (int) (50 * myWidth), (int) (50 * myHeight), (int) (368 * myWidth), (int) (134 * myHeight));
+        final ImageView flagSolarBattery = StaticMethods.drawFlag(layout, getApplicationContext(), (int) (50 * myWidth), (int) (50 * myHeight), (int) (526 * myWidth), (int) (128 * myHeight));
+        final ImageView flagStorehouse = StaticMethods.drawFlag(layout, getApplicationContext(), (int) (50 * myWidth), (int) (50 * myHeight), (int) (517 * myWidth), (int) (235 * myHeight));
+        final ImageView flagTemple = StaticMethods.drawFlag(layout, getApplicationContext(), (int) (50 * myWidth), (int) (50 * myHeight), (int) (289 * myWidth), (int) (74 * myHeight));
+        final ImageView flagTradePavilon = StaticMethods.drawFlag(layout, getApplicationContext(), (int) (50 * myWidth), (int) (50 * myHeight), (int) (173 * myWidth), (int) (232 * myHeight));
+        final ImageView flagWorkshop = StaticMethods.drawFlag(layout, getApplicationContext(), (int) (50 * myWidth), (int) (50 * myHeight), (int) (490 * myWidth), (int) (113 * myHeight));
+
+
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        WindowManager wm = (WindowManager) getApplicationContext().getSystemService(Context.WINDOW_SERVICE); // the results will be higher than using the activity context object or the getWindowManager() shortcut
+        wm.getDefaultDisplay().getMetrics(displayMetrics);
+        final int screenWidth = displayMetrics.widthPixels;
+        final int screenHeight = displayMetrics.heightPixels;
+
+        flagEnergonMine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                flag.setImageResource(R.drawable.testkopalnia);
+                flagEnergonMine.setImageResource(R.drawable.testkopalnia);
+                //Toast.makeText(getApplicationContext(), "X = " + v.getX() + " || Y = " + v.getY(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "X = " + screenWidth + " || Y = " + screenHeight, Toast.LENGTH_LONG).show();
+            }
+        });
+        flagEnergonStore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "X = " + v.getX() + " || Y = " + v.getY(), Toast.LENGTH_LONG).show();
             }
         });
-
+        flagHeadquarters.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "X = " + v.getX() + " || Y = " + v.getY(), Toast.LENGTH_LONG).show();
+            }
+        });
+        flagLaboratory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "X = " + v.getX() + " || Y = " + v.getY(), Toast.LENGTH_LONG).show();
+            }
+        });
+        flagMaterialMine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "X = " + v.getX() + " || Y = " + v.getY(), Toast.LENGTH_LONG).show();
+            }
+        });
+        flagMineralMine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "X = " + v.getX() + " || Y = " + v.getY(), Toast.LENGTH_LONG).show();
+            }
+        });
+        flagNavalShipyard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "X = " + v.getX() + " || Y = " + v.getY(), Toast.LENGTH_LONG).show();
+            }
+        });
+        flagObservatory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "X = " + v.getX() + " || Y = " + v.getY(), Toast.LENGTH_LONG).show();
+            }
+        });
+        flagShieldGenerator.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "X = " + v.getX() + " || Y = " + v.getY(), Toast.LENGTH_LONG).show();
+            }
+        });
+        flagSolarBattery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "X = " + v.getX() + " || Y = " + v.getY(), Toast.LENGTH_LONG).show();
+            }
+        });
+        flagStorehouse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "X = " + v.getX() + " || Y = " + v.getY(), Toast.LENGTH_LONG).show();
+            }
+        });
+        flagTemple.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "X = " + v.getX() + " || Y = " + v.getY(), Toast.LENGTH_LONG).show();
+            }
+        });
+        flagTradePavilon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "X = " + v.getX() + " || Y = " + v.getY(), Toast.LENGTH_LONG).show();
+            }
+        });
+        flagWorkshop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "X = " + v.getX() + " || Y = " + v.getY(), Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }
