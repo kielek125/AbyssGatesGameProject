@@ -12,6 +12,7 @@ import android.support.v4.content.res.ResourcesCompat;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 import com.messanger.firebase.malavero.abyssgates.FINAL.StaticMethods;
@@ -19,6 +20,11 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.messanger.firebase.malavero.abyssgates.FINAL.StaticMethods.drawFlag;
+import static com.messanger.firebase.malavero.abyssgates.R.drawable.flag;
 
 public class PlanetActivity extends Activity implements View.OnTouchListener {
 
@@ -90,6 +96,14 @@ public class PlanetActivity extends Activity implements View.OnTouchListener {
         return false;
     }
     private void drawFlags(){
-        StaticMethods.drawFlag(layout, getApplicationContext(), 100,100,100, 100);
+        final ImageView flag = StaticMethods.drawFlag(layout, getApplicationContext(), 50, 50, 300, 200);
+        flag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                flag.setImageResource(R.drawable.testkopalnia);
+                Toast.makeText(getApplicationContext(), "X = " + v.getX() + " || Y = " + v.getY(), Toast.LENGTH_LONG).show();
+            }
+        });
+
     }
 }

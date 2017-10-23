@@ -3,6 +3,7 @@ package com.messanger.firebase.malavero.abyssgates.FINAL;
 import android.content.Context;
 import android.media.Image;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -61,19 +62,15 @@ public class StaticMethods {
     public static void toastException(Exception ex, Context context) {
         Toast.makeText(context, ex.getMessage().toString(), Toast.LENGTH_SHORT).show();
     }
-    public static void drawFlag(RelativeLayout layout, Context context, int high, int width, int leftMargin, int topMargin){
+    public static ImageView drawFlag(RelativeLayout layout, Context context, int high, int width, int leftMargin, int topMargin){
+        float density = context.getResources().getDisplayMetrics().density;
         ImageView flag = new ImageView(context);
         RelativeLayout.LayoutParams params;
         flag.setImageResource(R.drawable.flag);
-        flag.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-        params = new RelativeLayout.LayoutParams(high,width);
-        params.leftMargin = leftMargin;
-        params.topMargin = topMargin;
+        params = new RelativeLayout.LayoutParams((int)(high * density),(int)(width * density));
+        params.leftMargin = (int)(leftMargin * density);
+        params.topMargin = (int)(topMargin * density);
         layout.addView(flag, params);
+        return flag;
     }
 }
