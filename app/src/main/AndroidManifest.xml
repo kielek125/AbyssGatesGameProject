@@ -18,10 +18,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PlanetActivity" />
-        <activity android:name=".ForgotLoginRequest" />
-        <activity android:name=".RegisterYourAccount" />
-        <activity android:name=".ChoosePlanetActivity"></activity>
+        <activity
+            android:name=".PlanetActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".ForgotLoginRequest"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".RegisterYourAccount"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".ChoosePlanetActivity"
+            android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>

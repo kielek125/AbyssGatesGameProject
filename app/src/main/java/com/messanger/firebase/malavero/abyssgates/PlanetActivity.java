@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.support.v4.content.res.ResourcesCompat;
 import android.util.DisplayMetrics;
 import android.view.Display;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -27,10 +28,6 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-
-import static android.R.attr.width;
-import static android.R.attr.x;
-import static android.R.attr.y;
 
 
 public class PlanetActivity extends Activity implements View.OnTouchListener {
@@ -99,13 +96,9 @@ public class PlanetActivity extends Activity implements View.OnTouchListener {
     }
 
     public boolean onTouch(View v, MotionEvent event) {
-        //zoomLayout.init(PlanetActivity.this);
-        int x = (int) event.getX();
-        int y = (int) event.getY();
-        StaticMethods.toastMessage("X = " + x + " | Y = " + y, getApplicationContext());
+        zoomLayout.init(PlanetActivity.this);
         return false;
     }
-
     private void drawFlags() {
         DisplayMetrics display = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(display);
