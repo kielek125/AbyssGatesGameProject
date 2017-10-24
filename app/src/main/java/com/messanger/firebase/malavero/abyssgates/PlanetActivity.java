@@ -29,6 +29,8 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import static android.R.attr.width;
+import static android.R.attr.x;
+import static android.R.attr.y;
 
 
 public class PlanetActivity extends Activity implements View.OnTouchListener {
@@ -105,14 +107,14 @@ public class PlanetActivity extends Activity implements View.OnTouchListener {
     }
 
     private void drawFlags() {
-        //get x i podziel go przez stała 1080
-        //get y i podziel go przez stala 1800
-        // jezeli e
-        Display display = getWindowManager().getDefaultDisplay();
-        Point size = new Point();
-        display.getSize(size);
-        double myWidth = (StaticValues.BASIC_WIDTH / size.x) * 2.625;
-        double myHeight = (StaticValues.BASICH_HEIGHT / size.y) * 2.625;
+        DisplayMetrics display = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(display);
+        double x = display.widthPixels;
+        double y = display.heightPixels;
+        double myWidth = (x / StaticValues.BASIC_WIDTH) * 2.625;
+        double myHeight = (y / StaticValues.BASIC_HEIGHT) * 2.625;
+        Toast.makeText(getApplicationContext(), "X: " + myWidth + "Y: " + myHeight, Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "X: " + x + "Y: " + y, Toast.LENGTH_LONG).show();
 
         final ImageView flagEnergonMine = StaticMethods.drawFlag(layout, getApplicationContext(), (int) (50 * myWidth), (int) (50 * myHeight), (int) (441 * myWidth), (int) (331 * myHeight));
         final ImageView flagEnergonStore = StaticMethods.drawFlag(layout, getApplicationContext(), (int) (50 * myWidth), (int) (50 * myHeight), (int) (379 * myWidth), (int) (297 * myHeight));
@@ -130,18 +132,11 @@ public class PlanetActivity extends Activity implements View.OnTouchListener {
         final ImageView flagWorkshop = StaticMethods.drawFlag(layout, getApplicationContext(), (int) (50 * myWidth), (int) (50 * myHeight), (int) (490 * myWidth), (int) (113 * myHeight));
 
 
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        WindowManager wm = (WindowManager) getApplicationContext().getSystemService(Context.WINDOW_SERVICE); // the results will be higher than using the activity context object or the getWindowManager() shortcut
-        wm.getDefaultDisplay().getMetrics(displayMetrics);
-        final int screenWidth = displayMetrics.widthPixels;
-        final int screenHeight = displayMetrics.heightPixels;
-
         flagEnergonMine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 flagEnergonMine.setImageResource(R.drawable.testkopalnia);
-                //Toast.makeText(getApplicationContext(), "X = " + v.getX() + " || Y = " + v.getY(), Toast.LENGTH_LONG).show();
-                Toast.makeText(getApplicationContext(), "X = " + screenWidth + " || Y = " + screenHeight, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "X = " + v.getX() + " || Y = " + v.getY(), Toast.LENGTH_LONG).show();
             }
         });
         flagEnergonStore.setOnClickListener(new View.OnClickListener() {

@@ -6,5 +6,5 @@ package com.messanger.firebase.malavero.abyssgates.FINAL;
 
 public class StaticValues {
     public static final int BASIC_WIDTH = 1794;
-    public static final int BASICH_HEIGHT = 1080;
+    public static final int BASIC_HEIGHT = 1080;
 }
